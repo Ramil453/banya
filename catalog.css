@@ -1,0 +1,799 @@
+nav a[aria-current="page"] {
+  color: var(--au);
+}
+
+/* ---------- Первый экран ---------- */
+.cat-hero {
+  position: relative;
+  overflow: hidden;
+  background: var(--cr);
+  padding: 36px 0 clamp(110px, 12vw, 150px);
+}
+
+/* Фото справа с плавным растворением в фон */
+.cat-hero__media {
+  position: absolute;
+  inset: 0 0 0 auto;
+  width: min(58%, 820px);
+  background: url("images/catalog-hero.jpg") center / cover no-repeat;
+  -webkit-mask-image: linear-gradient(90deg, transparent 0, #000 38%),
+    linear-gradient(180deg, #000 70%, transparent 100%);
+  -webkit-mask-composite: source-in;
+  mask-image: linear-gradient(90deg, transparent 0, #000 38%),
+    linear-gradient(180deg, #000 70%, transparent 100%);
+  mask-composite: intersect;
+}
+
+.cat-hero .w {
+  position: relative;
+}
+
+.crumbs {
+  display: flex;
+  gap: 8px;
+  font-size: 13px;
+  color: var(--mu);
+  margin-bottom: clamp(24px, 5vw, 56px);
+}
+
+.crumbs a:hover {
+  color: var(--gr);
+}
+
+.crumbs span:last-child {
+  color: var(--g);
+}
+
+.cat-hero h1 {
+  font-size: clamp(38px, 6vw, 72px);
+  line-height: 1.05;
+  color: var(--g);
+  max-width: 700px;
+}
+
+.cat-hero .lead {
+  font-size: 16px;
+  max-width: 460px;
+  margin: 22px 0 0;
+  line-height: 1.65;
+  color: #33463b;
+}
+
+/* ---------- Панель выбора типа бани ---------- */
+.picker {
+  position: relative;
+  z-index: 2;
+  margin-top: -78px;
+  background: #fff;
+  border-radius: 22px;
+  box-shadow: 0 14px 40px #0e2a1b1f;
+  padding: 22px 26px;
+  display: flex;
+  align-items: center;
+  gap: 20px 28px;
+  flex-wrap: wrap;
+}
+
+.picker__label {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--g);
+  white-space: nowrap;
+}
+
+.tabs {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  flex: 1;
+}
+
+.tab {
+  border: 1px solid #b9c6bb;
+  background: #fff;
+  color: var(--g);
+  border-radius: 99px;
+  padding: 11px 20px;
+  font: 600 14px inherit;
+  cursor: pointer;
+  transition: background 0.25s, color 0.25s, border-color 0.25s, transform 0.25s;
+}
+
+.tab:hover {
+  background-color: var(--g);
+  border-color: var(--g);
+  color: #fff;
+}
+
+.tab[aria-pressed="true"] {
+  background: var(--g);
+  border-color: var(--g);
+  color: #fff;
+}
+
+/* ---------- Карточки пяти типов ---------- */
+.types {
+  padding: 44px 0 20px;
+}
+
+.tcards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+  gap: 20px;
+}
+
+.tc {
+  position: relative;
+  background: #fff;
+  border-radius: 20px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  outline: 3px solid transparent;
+  outline-offset: -3px;
+  transition: transform 0.3s, box-shadow 0.3s, outline-color 0.3s;
+}
+
+
+.tc.sel {
+  outline-color: var(--au); 
+}
+
+.tc__img {
+  position: relative;
+  height: 150px;
+  background: var(--cr2);
+  overflow: hidden;
+}
+
+.tc__img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s;
+}
+
+.tc:hover .tc__img img {
+  transform: scale(1.06);
+}
+
+.tc__badge {
+  position: absolute;
+  left: 12px;
+  top: 12px;
+  z-index: 1;
+  background: #123524e6;
+  color: #fff;
+  border-radius: 99px;
+  padding: 4px 12px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.tc__body {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  flex: 1;
+}
+
+.tc__body h3 {
+  font-size: 19px;
+  line-height: 1.2;
+  color: var(--g);
+}
+
+.tc__specs {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 9px;
+  font-size: 13px;
+  color: var(--mu);
+  flex: 1;
+}
+
+.tc__specs li {
+  position: relative;
+  padding-left: 22px;
+}
+
+.tc__specs li::before {
+  content: "";
+  position: absolute;
+  left: 2px;
+  top: 6px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--gr);
+}
+
+.tc__foot {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.price small {
+  display: block;
+  font-size: 12px;
+  color: var(--mu);
+}
+
+.price strong {
+  font-size: 19px;
+  color: var(--g);
+  line-height: 1.2;
+}
+
+.tc .btn {
+  padding: 11px 18px;
+  font-size: 13px;
+}
+
+.tc.sel .btn {
+  background: var(--g);
+  color: #fff;
+}
+
+/* ---------- Панель с 5 вариантами ---------- */
+.vp {
+  background: var(--cr2);
+  padding: clamp(40px, 6vw, 72px) 0;
+  scroll-margin-top: 80px;
+  animation: rise 0.55s both;
+}
+
+.vp[hidden] {
+  display: none;
+}
+
+.vp:focus {
+  outline: none;
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+}
+
+.vp__head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 24px;
+  flex-wrap: wrap;
+  margin-bottom: 30px;
+}
+
+.vp__head .lead {
+  margin: 12px 0 0;
+  max-width: 620px;
+}
+
+.vp__note {
+  padding: 12px 18px;
+  font-size: 12px;
+  color: #33333374;
+  max-width: 360px;
+}
+
+.vgrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+}
+
+.vc {
+  background: #fff;
+  border-radius: 20px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  animation: rise 0.5s both;
+  animation-delay: var(--d, 0s);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.vc__top {
+  background: var(--g);
+  color: var(--cr);
+  padding: 18px 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  height: 90px;
+}
+
+.vc__top b {
+  font-size: 20px;
+  line-height: 1.2;
+}
+
+.vc__top span {
+  font-size: 13px;
+  font-weight: 600;
+  opacity: 0.75;
+  white-space: nowrap;
+}
+
+.opts {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  flex: 1;
+}
+
+.opt {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 14px;
+  padding: 16px 24px;
+  border-bottom: 1px solid #e6ece5;
+  width: 100%;
+}
+
+.opt:nth-child(even) {
+  background: #f6f8f4;
+}
+
+.opt__dim {
+  font-size: 14px;
+  color: var(--tx);
+  line-height: 1.5;
+}
+
+.opt__dim small {
+  display: block;
+  font-size: 12px;
+  color: var(--mu);
+}
+
+.opt__price {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--g);
+  white-space: nowrap;
+  text-align: right;
+}
+
+.opt__price.ask {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--mu);
+}
+
+.vc__foot {
+  padding: 18px 24px;
+}
+
+.vc__foot .btn {
+  width: 100%;
+  justify-content: center;
+  padding: 12px 18px;
+  font-size: 14px;
+}
+
+.vc--custom {
+  background: none;
+  border: 2px dashed #8fae95;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 12px;
+  padding: 28px;
+}
+
+.vc--custom:hover {
+  transform: none;
+  box-shadow: none;
+}
+
+.vc--custom h3 {
+  font-size: 20px;
+  color: var(--g);
+}
+
+.vc--custom p {
+  font-size: 14px;
+  color: var(--mu);
+  line-height: 1.6;
+}
+
+/* ---------- Баннер «Не нашли модель?» ---------- */
+.promo {
+  padding: clamp(40px, 6vw, 72px) 0 40px;
+  position: relative;
+}
+
+.promo__box {
+  position: relative;
+  overflow: hidden;
+  background: var(--g);
+  color: #fff;
+  border-radius: 22px;
+  padding: 28px 0 28px 28px;
+  min-height: 220px;
+  display: flex;
+  align-items: center;
+  height: 330px;
+}
+
+.promo__box::after {
+  content: "";
+  position: absolute;
+  inset: 0 0 0 auto;
+  width: 55%;
+  background: url("images/catalog-cta.jpg") center / cover;
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 45%);
+  mask-image: linear-gradient(90deg, transparent, #000 45%);
+}
+
+.promo__txt {
+  position: relative;
+  z-index: 1;
+  max-width: 460px;
+}
+
+.promo__txt::before {
+  content: "";
+  display: block;
+  width: 36px;
+  height: 3px;
+  background: var(--au);
+  margin-bottom: 18px;
+}
+
+.promo h2 {
+  color: #fff;
+  font-size: clamp(26px, 3vw, 36px);
+}
+
+.promo p {
+  margin: 12px 0 24px;
+  color: #ffffffcc;
+  font-size: 15px;
+}
+
+/* ---------- Ряд преимуществ ---------- */
+.perks {
+  padding: 20px 0 clamp(40px, 6vw, 64px);
+}
+
+.perks .w {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.perk {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
+
+.perk i {
+  flex: none;
+  width: 56px;
+  height: 56px;
+  border: 1px solid #9bb59f;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  font-style: normal;
+  font-size: 24px;
+  background: #fff;
+}
+
+.perk b {
+  display: block;
+  color: var(--g);
+  font-size: 15px;
+}
+
+.perk small {
+  color: var(--mu);
+  font-size: 13px;
+}
+
+/* ---------- Планшет ---------- */
+@media (max-width: 1024px) {
+  .cat-hero__media {
+    width: 62%;
+    opacity: 0.9;
+  }
+
+  .vgrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .perks .w {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ---------- Мобильные ---------- */
+@media (max-width: 640px) {
+  .cat-hero {
+    padding-bottom: 96px;
+  }
+
+  .cat-hero__media {
+    position: relative;
+    inset: auto;
+    width: 100%;
+    height: 200px;
+    margin-top: 24px;
+    order: 2;
+    -webkit-mask-image: linear-gradient(180deg, #000 60%, transparent);
+    mask-image: linear-gradient(180deg, #000 60%, transparent);
+  }
+
+  .cat-hero {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .cat-hero .w {
+    order: 1;
+  }
+
+  .picker {
+    margin-top: -70px;
+    padding: 18px;
+  }
+
+  .tabs {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    margin-inline: -18px;
+    padding: 2px 18px;
+    scrollbar-width: none;
+    flex-basis: 100%;
+  }
+
+  .tabs::-webkit-scrollbar {
+    display: none;
+  }
+
+  .tab {
+    flex: none;
+  }
+
+  .picker .btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .tcards,
+  .vgrid {
+    grid-template-columns: 1fr;
+  }
+
+  .promo__box::after {
+    opacity: 0.35;
+    width: 100%;
+  }
+
+  .promo__box .btn {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+/* ---------- Десктоп: крупная типографика ---------- */
+@media (min-width: 1025px) {
+  .crumbs {
+    font-size: 15px;
+  }
+
+  .cat-hero .lead {
+    font-size: 20px;
+    max-width: 540px;
+  }
+
+  .picker {
+    padding: 26px 32px;
+  }
+
+  .picker__label {
+    font-size: 16px;
+  }
+
+  .tab {
+    font-size: 16px;
+    padding: 13px 24px;
+  }
+
+  .tcards {
+    gap: 24px;
+  }
+
+  .tc__img {
+    height: 180px;
+  }
+
+  .tc__body {
+    padding: 24px;
+  }
+
+  .tc__body h3 {
+    font-size: 22px;
+  }
+
+  .tc__specs {
+    font-size: 15px;
+  }
+
+  .tc__badge {
+    font-size: 13px;
+  }
+
+  .price small {
+    font-size: 14px;
+  }
+
+  .price strong {
+    font-size: 22px;
+  }
+
+  .tc .btn {
+    font-size: 15px;
+    padding: 12px 20px;
+  }
+
+  .vp__note {
+    font-size: 16px;
+  }
+
+  .vgrid {
+    gap: 28px;
+  }
+
+  .vc__top b {
+    font-size: 24px;
+  }
+
+  .vc__top span {
+    font-size: 15px;
+  }
+
+  .opt {
+    padding: 20px 30px;
+  }
+
+  .opt__dim {
+    font-size: 16px;
+  }
+
+  .opt__dim small {
+    font-size: 14px;
+  }
+
+  .opt__price {
+    font-size: 22px;
+  }
+
+  .opt__price.ask {
+    font-size: 16px;
+  }
+
+  .vc__foot {
+    padding: 22px 30px;
+  }
+
+  .vc__foot .btn {
+    font-size: 16px;
+  }
+
+  .vc--custom {
+    padding: 34px;
+  }
+
+  .vc--custom h3 {
+    font-size: 24px;
+  }
+
+  .vc--custom p {
+    font-size: 16px;
+  }
+
+  .promo p {
+    font-size: 18px;
+  }
+
+  .perk b {
+    font-size: 18px;
+  }
+
+  .perk small {
+    font-size: 15px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+  .vp,
+  .vc {
+    animation: none;
+  }
+}
+
+/* Подсказка над карточками */
+.hint {
+  font-size: 14px;
+  color: var(--mu);
+  margin-bottom: 20px;
+}
+
+@media (min-width: 1025px) {
+  .hint {
+    font-size: 16px;
+  }
+}
+
+/* Название типа бруса / вариантов в строке цены */
+.opt__dim b {
+  color: var(--g);
+  font-weight: 600;
+}
+
+/* Широкая карточка (беседка; «Свои размеры» при 6 вариантах) */
+.vc--wide {
+  grid-column: 1 / -1;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+.vc--wide>div {
+  max-width: 640px;
+}
+
+.vc--wide p {
+  margin-top: 6px;
+}
+
+@media (max-width: 640px) {
+  .vc--wide .btn {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+/* ---------- Видео выбранной модели ---------- */
+.model-video {
+  margin: 26px 0 30px;
+  padding: clamp(18px, 3vw, 30px);
+  border: 1px solid rgba(18, 53, 36, .14);
+  border-radius: 22px;
+  background: var(--cr);
+}
+
+.model-video[hidden] { display: none; }
+
+.model-video h3 {
+  margin: 0;
+  color: var(--g);
+  font-size: clamp(20px, 2.5vw, 28px);
+}
+
+.model-video video {
+  display: block;
+  width: 100%;
+  max-height: 620px;
+  margin-top: 16px;
+  border-radius: 14px;
+  background: #111;
+  object-fit: contain;
+}

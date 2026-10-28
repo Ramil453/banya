@@ -1,0 +1,530 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width,initial-scale=1,viewport-fit=cover"
+    />
+    <title>
+      Каталог бань — Бочки-Бани: бочки, квадро, из бруса, каркасные, беседки
+    </title>
+    <meta
+      name="description"
+      content="Каталог бань с собственного производства: баня-бочка, баня-квадро, баня из бруса, каркасная баня, беседка. Прайс-листы, размеры и цены. Сборка за 1 день, гарантия 1 год."
+    />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="catalog.css" />
+  </head>
+  <body>
+    <header>
+      <div class="w hd">
+        <a href="index.html" class="logo"
+          ><img src="images/logo.png" alt="Бочки-Бани" width="100"
+        /></a>
+        <nav id="nav">
+          <a href="catalog.html" aria-current="page">Каталог</a>
+          <a href="index.html#why">Преимущества</a>
+          <a href="index.html#comp">Комплектации</a>
+          <a href="index.html#reviews">Отзывы</a>
+          <a href="#contacts">Контакты</a>
+        </nav>
+        <div class="ph">
+          <a href="tel:+79274100088">+7 927 410-00-88</a>
+          <small>Ежедневно с 9:00 до 20:00</small>
+        </div>
+        <button class="btn" data-open>Рассчитать стоимость →</button>
+        <button class="bg" id="bg" aria-label="Меню" aria-expanded="false">
+          ☰
+        </button>
+      </div>
+    </header>
+
+    <main id="top">
+      <!-- Первый экран -->
+      <div class="cat-hero">
+        <div
+          class="cat-hero__media"
+          role="img"
+          aria-label="Баня-бочка на берегу озера"
+        ></div>
+        <div class="w">
+          <div class="crumbs">
+            <a href="index.html">Главная</a><span>/</span
+            ><span>Каталог</span>
+          </div>
+          <h1>Каталог бань</h1>
+          <p class="lead">
+            Бочки, квадро, бани из бруса, каркасные бани и беседки. Выберите тип
+            — и сразу увидите размеры и цены. Доставим и соберём на вашем
+            участке за 1 день.
+          </p>
+        </div>
+      </div>
+
+      <!-- Выбор типа -->
+      <div class="w">
+        <div class="picker">
+          <span class="picker__label" id="pl">Тип бани</span>
+          <div class="tabs" id="tabs" role="group" aria-labelledby="pl"></div>
+          <button class="btn" data-open>Рассчитать стоимость →</button>
+        </div>
+      </div>
+
+      <section class="types" id="catalog">
+        <div class="w">
+          <p class="hint">
+            Выберите тип бани, чтобы увидеть 5 вариантов с ценами и
+            характеристиками.
+          </p>
+          <div class="tcards" id="tcards"></div>
+        </div>
+      </section>
+
+      <!-- 5 вариантов выбранного типа -->
+      <section class="vp" id="variants" tabindex="-1" hidden aria-live="polite">
+        <div class="w">
+          <div class="vp__head">
+            <div>
+              <div class="eyebrow">Прайс-лист</div>
+              <h2 id="vTitle"></h2>
+              <p class="lead" id="vDesc"></p>
+            </div>
+            <div class="vp__note" id="vNote" hidden></div>
+          </div>
+          <div class="model-video" id="modelVideo" hidden>
+            <h3 id="modelVideoTitle">Видеообзор модели</h3>
+            <video id="modelVideoPlayer" controls playsinline preload="metadata">
+              <source id="modelVideoSource" src="" type="video/mp4" />
+              Ваш браузер не поддерживает воспроизведение видео.
+            </video>
+          </div>
+          <div class="vgrid" id="vgrid"></div>
+        </div>
+      </section>
+
+      <!-- Не нашли модель -->
+      <section class="promo">
+        <div class="w">
+          <div class="promo__box rev">
+            <div class="promo__txt">
+              <h2>Не нашли подходящую модель?</h2>
+              <p>
+                Подберём комплектацию под ваш участок и бюджет. Консультация
+                бесплатная.
+              </p>
+              <button class="btn" data-model="Индивидуальный заказ">
+                Получить консультацию →
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <footer id="contacts">
+      <div class="w ft">
+        <a href="index.html" class="logo"
+          ><img src="images/logo.png" alt="Бочки-Бани" width="100"
+        /></a>
+        <nav>
+          <a href="catalog.html">Каталог</a
+          ><a href="index.html#why">Преимущества</a>
+          <a href="index.html#comp">Комплектации</a
+          ><a href="index.html#reviews">Отзывы</a>
+          <a href="#contacts">Контакты</a>
+        </nav>
+        <div>
+          <a href="tel:+79271334647">+7 (927) 133-46-47</a><br />Ежедневно с
+          9:00 до 20:00
+        </div>
+        <small style="width: 100%; opacity: 0.6"
+          >© 2026 Бочки-Бани. Все права защищены.</small
+        >
+      </div>
+    </footer>
+
+    <!-- Форма заявки (та же, что на главной) -->
+    <div class="m" id="fm" role="dialog" aria-modal="true" aria-labelledby="ft">
+      <div class="box">
+        <button class="x" data-close aria-label="Закрыть">×</button>
+        <h3 id="ft" style="color: var(--g)">Рассчитать стоимость</h3>
+        <form id="f" novalidate>
+          <label for="n">Имя</label
+          ><input id="n" name="name" autocomplete="name" />
+          <div class="e"></div>
+          <label for="p">Телефон</label>
+          <input
+            id="p"
+            name="phone"
+            type="tel"
+            placeholder="+7 (___) ___-__-__"
+            autocomplete="tel"
+          />
+          <div class="e"></div>
+          <label for="mo">Интересующая модель</label
+          ><select id="mo" name="model"></select>
+          <label for="c">Комментарий (необязательно)</label>
+          <textarea id="c" name="comment" rows="3"></textarea>
+          <button
+            class="btn"
+            style="margin-top: 14px; width: 100%; justify-content: center"
+            id="sb"
+          >
+            Отправить заявку
+          </button>
+          <div class="st" id="st" role="status"></div>
+        </form>
+      </div>
+    </div>
+
+    <script>
+      const V = (len, name, options) => ({ len, name, options });
+      const P = (a, b) => [
+        { w: 2, h: 2, price: a },
+        { d: 2.1, w: 2.1, price: b }, // у варианта 2,1 м вместо «ширина/высота» выводим «Диаметр»
+      ]; // бочка
+      const Q = (a, b) => [
+        { w: 2.15, h: 2.15, price: a },
+        { w: 2.3, h: 2.3, price: b },
+      ]; // квадро
+      const B = (a, b) => [
+        { label: "Мини-брус 45×145 мм", w: 2.4, price: a },
+        { label: "Профилированный брус 95×145 мм", w: 2.4, price: b },
+      ]; // брус
+      const K = (a) => [{ w: 2.2, price: a }]; // каркас
+
+      const CATALOG = [
+        {
+          id: "bochka",
+          video: "videos/bochka.mp4",
+          title: "Баня-бочка",
+          badge: "Компактная",
+          img: "images/catalog-1.jpg",
+          specs: [
+            "Длина: от 2 до 6 м",
+            "Прогрев до 80°C за 20 минут",
+            "Круглогодичное использование",
+          ],
+          desc: "Готовая баня круглой формы: компактная и удобная, по функционалу повторяет полноразмерную баню.",
+          customName: "Баня «Своё решение»",
+          variants: [
+            V(2, "«Мини»", P(140000, 160000)),
+            V(3, "«Стандарт»", P(180000, 205000)),
+            V(3.5, "«Люкс»", P(200000, 220000)),
+            V(4, "«Супер-люкс»", P(215000, 235000)),
+            V(5, "«Мега»", P(250000, 270000)),
+            V(6, "«Эксклюзив»", P(280000, 300000)),
+          ],
+        },
+        {
+          id: "kvadro",
+          video: "videos/kvadro.mp4",
+          title: "Баня-квадро",
+          badge: "Больше места",
+          img: "images/catalog-2.jpg",
+          specs: [
+            "Длина: от 3 до 6 м",
+            "Больше места внутри парной",
+            "Без оформления документов",
+          ],
+          desc: "Преимущества бани-бочки и увеличенная площадь внутри за счёт оквадраченной формы.",
+          note: "Возможно изготовление бани из кедра",
+          variants: [
+            V(3, "", Q(215000, 235000)),
+            V(3.5, "", Q(235000, 255000)),
+            V(4, "", Q(250000, 270000)),
+            V(5, "", Q(285000, 305000)),
+            V(6, "", Q(315000, 335000)),
+          ],
+        },
+        {
+          id: "brus",
+          video: "videos/prof-brus.mp4",
+          title: "Баня из бруса",
+          badge: "На фундаменте",
+          img: "images/catalog-3.webp",
+          specs: [
+            "Мини-брус и профилированный брус",
+            "Длина: от 3 до 6 м, ширина 2,4 м",
+            "Служит более 20 лет",
+          ],
+          desc: "Баня на фундаменте из хвойного бруса на выбор: мини-брус или профилированный. Долго сохраняет тепло.",
+          note: "Возможно изготовление бани из кедра",
+          variants: [
+            V(3, "", B(300000, 340000)),
+            V(3.5, "", B(315000, 355000)),
+            V(4, "", B(330000, 370000)),
+            V(5, "", B(360000, 400000)),
+            V(6, "", B(390000, 430000)),
+          ],
+        },
+        {
+          id: "karkas",
+          title: "Каркасная баня",
+          badge: "Быстрый монтаж",
+          img: "images/catalog-4.jpg",
+          specs: [
+            "Длина: до 3 до 6 м, ширина 2,2 м",
+            "Утеплённый каркас, слив через поддон",
+            "Быстрое строительство",
+          ],
+          desc: "Каркас из балок с утеплением пола, потолка и стен. Основательное решение по доступной цене.",
+          variants: [
+            V(3, "", K(340000)),
+            V(3.5, "", K(355000)),
+            V(4, "", K(370000)),
+            V(5, "", K(400000)),
+            V(6, "", K(430000)),
+          ],
+        },
+        {
+          id: "besedka",
+          title: "Беседка",
+          badge: "Под заказ",
+          img: "images/catalog-5.jpg",
+          specs: [
+            "Изготавливаем из дерева",
+            "Индивидуальный дизайн",
+            "Размеры по договорённости",
+          ],
+          desc: "Отличное решение для отдыха на открытом воздухе. Изготавливаем из дерева под ваш запрос.",
+          agreement: true,
+          priceText: "По договорённости",
+          variants: [],
+        },
+      ];
+
+      /* ============ Утилиты ============ */
+      const $ = (s) => document.querySelector(s),
+        $$ = (s) => [...document.querySelectorAll(s)];
+      const num = (n) => String(n).replace(".", ",");
+      const unit = (v) => (/\d/.test(String(v)) ? num(v) + " м" : v);
+      const money = (n) =>
+        n.toLocaleString("ru-RU").replace(/\u00a0/g, " ") + " ₽";
+      const area = (len, w) =>
+        typeof w === "number"
+          ? "Площадь ≈ " + num(+(len * w).toFixed(2)) + " м²"
+          : "";
+      const minPrice = (t) => {
+        const p = t.variants
+          .flatMap((v) => v.options.map((o) => o.price))
+          .filter((x) => x != null);
+        return p.length ? Math.min(...p) : null;
+      };
+
+      /* ============ Карточки типов и вкладки ============ */
+      $("#tabs").innerHTML = CATALOG.map(
+        (t) =>
+          `<button class="tab" data-id="${t.id}" aria-pressed="false">${t.title}</button>`,
+      ).join("");
+      $("#tcards").innerHTML = CATALOG.map((t, k) => {
+        const p = minPrice(t);
+        return `<article class="tc rev" data-id="${t.id}" style="--d:${k * 0.07}s">
+          <div class="tc__img"><span class="tc__badge">${t.badge}</span><img src="${t.img}" alt="${t.title}" loading="lazy" width="300" height="180" /></div>
+          <div class="tc__body"><h3>${t.title}</h3>
+            <ul class="tc__specs">${t.specs.map((s) => `<li>${s}</li>`).join("")}</ul>
+            <div class="tc__foot"><div class="price"><small>${p ? "от" : "Стоимость"}</small><strong>${p ? money(p) : t.priceText || "По запросу"}</strong></div>
+              <button class="btn" data-pick="${t.id}" aria-pressed="false">Выбрать →</button></div></div></article>`;
+      }).join("");
+
+      /* ============ Выбор типа → 5 вариантов ============ */
+      const panel = $("#variants");
+      function select(id, scroll = true) {
+        const t = CATALOG.find((x) => x.id === id);
+        if (!t) return;
+        const modelVideo = $("#modelVideo");
+        const modelVideoPlayer = $("#modelVideoPlayer");
+        const modelVideoSource = $("#modelVideoSource");
+        if (t.video) {
+          modelVideo.hidden = false;
+          $("#modelVideoTitle").textContent = `Видеообзор: ${t.title}`;
+          if (modelVideoSource.getAttribute("src") !== t.video) {
+            modelVideoPlayer.pause();
+            modelVideoSource.setAttribute("src", t.video);
+            modelVideoPlayer.load();
+          }
+        } else {
+          modelVideo.hidden = true;
+          modelVideoPlayer.pause();
+        }
+        $$(".tab").forEach((b) =>
+          b.setAttribute("aria-pressed", b.dataset.id === id),
+        );
+        $$(".tc").forEach((c) => {
+          const on = c.dataset.id === id;
+          c.classList.toggle("sel", on);
+          const b = c.querySelector("[data-pick]");
+          b.setAttribute("aria-pressed", on);
+          b.textContent = on ? "Выбрано ✓" : "Выбрать →";
+        });
+        const n = t.variants.length;
+        $("#vTitle").textContent = t.agreement
+          ? t.title
+          : `${t.title}: ${n} вариантов`;
+        $("#vDesc").textContent = t.desc;
+        const nb = $("#vNote");
+        nb.hidden = !t.note;
+        nb.textContent = t.note || "";
+        $("#vgrid").innerHTML = t.agreement
+          ? `<article class="vc vc--custom vc--wide"><div><h3>Размеры и стоимость — по договорённости</h3><p>Изготавливаем беседки из дерева под ваш запрос. Расскажите, что нужно, — обсудим проект и рассчитаем стоимость.</p></div>
+             <button class="btn gr" data-model="Беседка">Обсудить проект →</button></article>`
+          : t.variants
+              .map((v, i) => {
+                const name = v.name
+                  ? `${t.title} ${v.name}`
+                  : `${t.title} ${num(v.len)} м`;
+                return `<article class="vc" style="--d:${i * 0.06}s">
+            <div class="vc__top"><b>${name}</b><span>Длина: ${num(v.len)} м</span></div>
+            <ul class="opts">${v.options
+              .map(
+                (o) => `
+              <li class="opt"><div class="opt__dim">${o.label ? `<b>${o.label}</b><br>` : ""}${o.d != null ? `Диаметр: ${unit(o.d)}` : `Ширина: ${unit(o.w)}${o.h != null ? `<br>Высота: ${unit(o.h)}` : ""}`}${area(v.len, o.w) ? `<small>${area(v.len, o.w)}</small>` : ""}</div>
+                <div class="opt__price">${money(o.price)}</div></li>`,
+              )
+              .join("")}</ul>
+            <div class="vc__foot"><button class="btn" data-model="${name} (${num(v.len)} м)">Заказать →</button></div>
+          </article>`;
+              })
+              .join("") +
+            `<article class="vc vc--custom${n % 3 === 0 ? " vc--wide" : ""}" style="--d:0.4s"><div><h3>${t.customName || "Свои размеры"}</h3><p>Изготовим баню по вашим параметрам. Индивидуальный расчёт стоимости.</p></div>
+             <button class="btn gr" data-model="${t.title}, свои размеры">Рассчитать →</button></article>`;
+        panel.hidden = false;
+        panel.style.animation = "none";
+        void panel.offsetWidth;
+        panel.style.animation = "";
+        history.replaceState(null, "", "#" + id);
+        if (scroll) {
+          panel.scrollIntoView({
+            behavior: matchMedia("(prefers-reduced-motion: reduce)").matches
+              ? "auto"
+              : "smooth",
+            block: "start",
+          });
+          panel.focus({ preventScroll: true });
+        }
+      }
+      document.addEventListener("click", (e) => {
+        const tab = e.target.closest(".tab"),
+          pick = e.target.closest("[data-pick]"),
+          card = e.target.closest(".tc");
+        if (tab) select(tab.dataset.id);
+        else if (pick) select(pick.dataset.pick);
+        else if (card && !e.target.closest("button")) select(card.dataset.id);
+      });
+      const h0 = location.hash.slice(1);
+      if (CATALOG.some((t) => t.id === h0)) select(h0, true);
+
+      /* ============ Меню, анимации ============ */
+      const nav = $("#nav"),
+        bg = $("#bg");
+      bg.onclick = () =>
+        bg.setAttribute("aria-expanded", nav.classList.toggle("o"));
+      $$("#nav a").forEach(
+        (a) =>
+          (a.onclick = () => {
+            nav.classList.remove("o");
+            bg.setAttribute("aria-expanded", "false");
+          }),
+      );
+      const ro = new IntersectionObserver(
+        (es) =>
+          es.forEach((x) => {
+            if (x.isIntersecting) {
+              x.target.classList.add("in");
+              ro.unobserve(x.target);
+            }
+          }),
+        { threshold: 0.12 },
+      );
+      $$(".rev").forEach((e) => ro.observe(e));
+
+      /* ============ Модальное окно и форма ============ */
+      const fm = $("#fm"),
+        mo = $("#mo");
+      let last;
+      mo.innerHTML =
+        `<option value="">Не выбрано</option>` +
+        CATALOG.map((t) => `<option>${t.title}</option>`).join("") +
+        `<option>Индивидуальный заказ</option>`;
+      function openForm(model) {
+        last = document.activeElement;
+        if (model && ![...mo.options].some((o) => o.value === model))
+          mo.add(new Option(model, model));
+        mo.value = model || "";
+        $("#ft").textContent = model
+          ? "Заявка: " + model
+          : "Рассчитать стоимость";
+        $("#st").className = "st";
+        fm.classList.add("o");
+        $("#n").focus();
+      }
+      function hide() {
+        fm.classList.remove("o");
+        last && last.focus();
+      }
+      document.addEventListener("click", (e) => {
+        const b = e.target.closest("[data-open],[data-model]");
+        if (b) openForm(b.dataset.model || "");
+        if (e.target.closest("[data-close]") || e.target === fm) hide();
+      });
+      addEventListener("keydown", (e) => e.key === "Escape" && hide());
+
+      // Маска телефона
+      const ph = $("#p");
+      ph.oninput = () => {
+        let d = ph.value.replace(/\D/g, "");
+        if (d[0] == "8" || d[0] == "7") d = d.slice(1);
+        d = d.slice(0, 10);
+        let r = "+7";
+        if (d) r += " (" + d.slice(0, 3);
+        if (d.length >= 3) r += ")";
+        if (d.length > 3) r += " " + d.slice(3, 6);
+        if (d.length > 6) r += "-" + d.slice(6, 8);
+        if (d.length > 8) r += "-" + d.slice(8, 10);
+        ph.value = r;
+      };
+
+      // ИЗОЛИРОВАННАЯ точка подключения бэкенда (API / Telegram-бот / CRM)
+      const LEAD_ENDPOINT = null;
+      async function submitLead(data) {
+        if (!LEAD_ENDPOINT) throw new Error("NO_BACKEND");
+        const r = await fetch(LEAD_ENDPOINT, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(data),
+        });
+        if (!r.ok) throw new Error("HTTP " + r.status);
+      }
+      $("#f").onsubmit = async (e) => {
+        e.preventDefault();
+        const er = $$("#f .e");
+        let ok = true;
+        er[0].textContent =
+          $("#n").value.trim().length < 2 ? ((ok = false), "Введите имя") : "";
+        er[1].textContent =
+          ph.value.replace(/\D/g, "").length !== 11
+            ? ((ok = false), "Введите телефон полностью")
+            : "";
+        if (!ok) return;
+        const st = $("#st"),
+          sb = $("#sb");
+        sb.disabled = true;
+        sb.textContent = "Отправка…";
+        try {
+          await submitLead(Object.fromEntries(new FormData(e.target)));
+          st.textContent = "Спасибо! Заявка отправлена.";
+        } catch (x) {
+          st.textContent =
+            x.message === "NO_BACKEND"
+              ? "Приём заявок ещё не подключён: данные никуда не отправлены. Позвоните: +7 927 410-00-88."
+              : "Не удалось отправить. Попробуйте позже или позвоните нам.";
+        }
+        st.className = "st on";
+        sb.disabled = false;
+        sb.textContent = "Отправить заявку";
+      };
+    </script>
+  </body>
+</html>
